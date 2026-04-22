@@ -32,3 +32,14 @@ app.include_router(misc.router)
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://ton-site.netlify.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

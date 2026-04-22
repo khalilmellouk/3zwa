@@ -54,3 +54,10 @@ export const api = {
   // Q&A
   qa: (question, demand_id = null) => req('POST', '/qa', { question, demand_id }),
 }
+
+const API_URL = import.meta.env.VITE_API_URL;
+
+export async function fetchData() {
+  const response = await fetch(`${API_URL}/`);
+  return response.json();
+}
